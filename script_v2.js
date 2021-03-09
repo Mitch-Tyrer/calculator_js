@@ -15,15 +15,34 @@ let operator = null;
 let secondOperand = false;
 
 function updateDisplay() {
-    display.innerHTML = displayValue;
+    display.value = displayValue;
 }
 
 function digits(e) {
+    const value = e.target.value;
+    //check if there is already a decimal, if so ignore it. !secondOperand makes sure that second operand is false before running this check to allow new inputs.
+    if (value === '.' && displayValue.includes('.') && !secondOperand){
+        console.log('multiple decimals');
+        return;
+    }
+
+    //if secondOperand is set to true, the display value is updated with the new input
     if (secondOperand) {
-        displayValue = e.target.value;
-        secondOperand = false
+        //if next input is a decimal, change the displayValue to '0.' and update secondOperand to False
+        if (value === '.') {
+            displayValue = '0.'
+            secondOperand = false;
+        } else {
+            displayValue = value;
+            secondOperand = false;
+        }
     } else {
-        displayValue = displayValue === '0' ? e.target.value : displayValue + e.target.value;
+        //checks to see if the input is a decimal and makes sure the '0' remains on the display.
+        if (value === '.' && displayValue === '0') {
+            displayValue = '0.'
+        } else {
+            displayValue = displayValue === '0' ? value : displayValue + value;
+        }
     }
 
     updateDisplay();
@@ -68,7 +87,7 @@ function handleOperator(e) {
         operator = e.target.value;
     } else if (operator) {
         const result = calculate(firstOperand, inputValue, operator);
-        displayValue = result;
+        displayValue = String(parseFloat(result.toFixed(5)));
         firstOperand = result;;
     }
     operator = e.target.value;
