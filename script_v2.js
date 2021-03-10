@@ -5,7 +5,7 @@ const subtractInput = document.getElementById('subtract');
 const multiplyInput = document.getElementById('multiply');
 const divideInput = document.getElementById('divide');
 const equals = document.getElementById('equals');
-const numbers = document.querySelectorAll('.num-inputs input')
+const numbers = document.querySelectorAll('.digit')
 const clearInput = document.getElementById('clear');
 
 //Global Variables
@@ -55,10 +55,15 @@ function calculate(a, b, op) {
             return a + b;
         case '-':
             return a - b;
-        case '*':
+        case 'x':
             return a * b;
         case '/':
-            return a / b;
+            if(displayValue === '0'){
+                alert(`Can't divide by zero!`);
+            } else {
+                return a / b;
+            }
+            
         default:
             //returns the second operand by itself to be used as the first operand in the handle operator fucntion with "=" is entered. This allows you to start a new calculation.
             return b;

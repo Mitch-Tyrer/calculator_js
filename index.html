@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
         <input type="text" class="display" value="0" disabled></input>
-        <div class="num-inputs">
-            <input type="button" value="9">
-            <input type="button" value="8">
-            <input type="button" value="7">
-            <input type="button" value="6">
-            <input type="button" value="5">
-            <input type="button" value="4">
-            <input type="button" value="3">
-            <input type="button" value="2">
-            <input type="button" value="1">
-            <input type="button" value="0">
-            <input type="button" value=".">
-        </div>
-        <div class="operator-inputs">
-            <input type="button" id="add" value="+">
-            <input type="button" id="subtract" value="-">
-            <input type="button" id="multiply" value="*">
-            <input type="button" id="divide" value="/">
-            <input type="button" id="equals" value="=">
-            <input type="button" id="clear" value="C">
-        </div>
+        <input class="operator" type="button" id="add" value="+">
+        <input class="operator" type="button" id="subtract" value="-">
+        <input class="operator" type="button" id="multiply" value="x">
+        <input class="operator" type="button" id="divide" value="/">
+        <input class="operator" type="button" id="equals" value="=">
+
+        <input class="digit" type="button" value="9">
+        <input class="digit" type="button" value="8">
+        <input class="digit" type="button" value="7">
+        <input class="digit" type="button" value="6">
+        <input class="digit" type="button" value="5">
+        <input class="digit" type="button" value="4">
+        <input class="digit" type="button" value="3">
+        <input class="digit" type="button" value="2">
+        <input class="digit" type="button" value="1">
+        <input class="digit" type="button" value="0">
+        <input class="digit" type="button" value=".">
+        <input class="operator" type="button" id="clear" value="AC">
     </div>
 
 
-<script src="script_v2.js"></script>
+    <script src="script_v2.js"></script>
 </body>
+
 </html>
